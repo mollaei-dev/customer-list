@@ -4,6 +4,7 @@ let tbl = document.getElementById("customerList");
 let boxes = tbl.getElementsByTagName("input");
 let checkAll = document.getElementById("chkAll");
 let selectedRow;
+let editState = false;
 
 //add to table
 btn[0].addEventListener("click", function () {
@@ -59,16 +60,35 @@ btn[0].addEventListener("click", function () {
     document.getElementById("fname").value = "";
     document.getElementById("lname").value = "";
     document.getElementById("phone").value = "";
+
+    // Highlight rows on hover
+    if (!editState) {
+      row.onmouseover = function () {
+        this.style.backgroundColor = "#3b3a2bff";
+      };
+      row.onmouseout = function () {
+        this.style.backgroundColor = "#161616";
+      };
+    }
   } else {
     selectedRow.childNodes[1].innerHTML = fname;
     selectedRow.childNodes[2].innerHTML = lname;
     selectedRow.childNodes[3].innerHTML = phone;
     btn[0].innerHTML = "Add";
+
+    selectedRow.onmouseover = function () {
+      this.style.backgroundColor = "#3b3a2bff";
+    };
+    selectedRow.onmouseout = function () {
+      this.style.backgroundColor = "#161616";
+    };
+
     document.getElementById("fname").value = "";
     document.getElementById("lname").value = "";
     document.getElementById("phone").value = "";
 
     selectedRow.style.backgroundColor = "#161616";
+    editState = false;
   }
 });
 
@@ -108,6 +128,7 @@ function chk_click(chk) {
 
   checkAll.checked = allChecked;
 }
+
 //delete current row :
 function deleteRow(row) {
   tbl.removeChild(row);
@@ -122,4 +143,11 @@ function editRow(x) {
 
   selectedRow = x;
   x.style.backgroundColor = "#646140ff";
+
+  x.onmouseover = null;
+  x.onmouseout = function () {
+    x.style.backgroundColor = "#646140ff";
+  };
+
+  editState = true;
 }
