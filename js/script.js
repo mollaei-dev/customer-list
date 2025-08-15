@@ -92,17 +92,12 @@ btn[0].addEventListener("click", function () {
   }
 });
 
-//delete seleced row :
+//delete selected row :
 btn[1].addEventListener("click", function () {
-  if (checkAll.checked)
-    for (let i = boxes.length - 1; i >= 0; i--) {
-      tbl.removeChild(boxes[i].parentNode.parentNode);
-      checkAll.checked = "";
-    }
-  else
-    for (let i = 0; i < boxes.length; )
-      if (boxes[i].checked) tbl.removeChild(boxes[i].parentNode.parentNode);
-      else i++;
+  for (let i = 0; i < boxes.length; )
+    if (boxes[i].checked) tbl.removeChild(boxes[i].parentNode.parentNode);
+    else i++;
+  checkAll.checked = "";
 });
 
 //chkAll click :
