@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer List</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form class="inputForm">
+        <div class="row">
+          <label for="fname">First Name : </label>
+          <input type="text" id="fname" />
+        </div>
+        <div class="row">
+          <label for="lname">Last Name : </label>
+          <input type="text" id="lname" />
+        </div>
+        <div class="row">
+          <label for="phone">Phone Number : </label>
+          <input type="number" id="phone" />
+        </div>
+        <div class="btn-wrapper">
+          <button type="button">Add</button>
+          <button type="button">Delete</button>
+        </div>
+      </form>
+
+      <table>
+        <caption>
+          Customer list
+        </caption>
+        <thead>
+          <tr>
+            <th><input type="checkbox" id="chkAll" /></th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Phone Number</th>
+            <th>Operations</th>
+          </tr>
+        </thead>
+        <tbody id="customerList"></tbody>
+      </table>
+    </div>
+
+    <script src="./js/script.js"></script>
+  </body>
+</html>
