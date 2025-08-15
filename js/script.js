@@ -80,3 +80,20 @@ checkAll.addEventListener("click", function () {
     for (let i = boxes.length - 1; i >= 0; i--) boxes[i].checked = "checked";
   else for (let i = boxes.length - 1; i >= 0; i--) boxes[i].checked = "";
 });
+
+//checkbox click :
+function chk_click(chk) {
+  let rowCheckboxes = tbl.querySelectorAll("tr td input[type='checkbox']");
+
+  if (!chk.checked) {
+    checkAll.checked = false;
+    return;
+  }
+
+  let allChecked = true;
+  rowCheckboxes.forEach((cb) => {
+    if (!cb.checked) allChecked = false;
+  });
+
+  checkAll.checked = allChecked;
+}
