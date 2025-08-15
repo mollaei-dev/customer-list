@@ -1,6 +1,8 @@
 "use strict";
 let btn = document.getElementsByTagName("button");
 let tbl = document.getElementById("customerList");
+let boxes = tbl.getElementsByTagName("input");
+let checkAll = document.getElementById("chkAll");
 
 //add to table
 btn[0].addEventListener("click", function () {
@@ -57,4 +59,17 @@ btn[0].addEventListener("click", function () {
     document.getElementById("lname").value = "";
     document.getElementById("phone").value = "";
   }
+});
+
+//delete seleced row :
+btn[1].addEventListener("click", function () {
+  if (checkAll.checked)
+    for (let i = boxes.length - 1; i >= 0; i--) {
+      tbl.removeChild(boxes[i].parentNode.parentNode);
+      checkAll.checked = "";
+    }
+  else
+    for (let i = 0; i < boxes.length; )
+      if (boxes[i].checked) tbl.removeChild(boxes[i].parentNode.parentNode);
+      else i++;
 });
