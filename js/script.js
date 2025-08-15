@@ -73,3 +73,10 @@ btn[1].addEventListener("click", function () {
       if (boxes[i].checked) tbl.removeChild(boxes[i].parentNode.parentNode);
       else i++;
 });
+
+//chkAll click :
+checkAll.addEventListener("click", function () {
+  if (checkAll.checked)
+    for (let i = boxes.length - 1; i >= 0; i--) boxes[i].checked = "checked";
+  else for (let i = boxes.length - 1; i >= 0; i--) boxes[i].checked = "";
+});
