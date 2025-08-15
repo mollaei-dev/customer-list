@@ -3,6 +3,7 @@ let btn = document.getElementsByTagName("button");
 let tbl = document.getElementById("customerList");
 let boxes = tbl.getElementsByTagName("input");
 let checkAll = document.getElementById("chkAll");
+let selectedRow;
 
 //add to table
 btn[0].addEventListener("click", function () {
@@ -58,6 +59,16 @@ btn[0].addEventListener("click", function () {
     document.getElementById("fname").value = "";
     document.getElementById("lname").value = "";
     document.getElementById("phone").value = "";
+  } else {
+    selectedRow.childNodes[1].innerHTML = fname;
+    selectedRow.childNodes[2].innerHTML = lname;
+    selectedRow.childNodes[3].innerHTML = phone;
+    btn[0].innerHTML = "Add";
+    document.getElementById("fname").value = "";
+    document.getElementById("lname").value = "";
+    document.getElementById("phone").value = "";
+
+    selectedRow.style.backgroundColor = "#161616";
   }
 });
 
@@ -100,4 +111,15 @@ function chk_click(chk) {
 //delete current row :
 function deleteRow(row) {
   tbl.removeChild(row);
+}
+
+//Edit current row :
+function editRow(x) {
+  document.getElementById("fname").value = x.childNodes[1].innerHTML;
+  document.getElementById("lname").value = x.childNodes[2].innerHTML;
+  document.getElementById("phone").value = x.childNodes[3].innerHTML;
+  btn[0].innerHTML = "Modify";
+
+  selectedRow = x;
+  x.style.backgroundColor = "#646140ff";
 }
