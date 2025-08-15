@@ -97,3 +97,7 @@ function chk_click(chk) {
 
   checkAll.checked = allChecked;
 }
+//delete current row :
+function deleteRow(row) {
+  tbl.removeChild(row);
+}
